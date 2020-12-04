@@ -11,7 +11,8 @@
 ## Team
 - [x] PM : 나영채 
 - [x] SERVER : 장문경
+- [ ] Publisher : 고민중 (이운호, 신재규)
 - [ ] Data Analysis : 진현영
-
+- [ ] Illustrator : 고민중 (김해리님)
 ## Result
 - 결과
