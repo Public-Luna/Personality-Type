@@ -11,7 +11,7 @@
 ## Team
 - [x] PM : 나영채 
 - [x] SERVER : 장문경
-- [x] Data Analysis : 진현영
+- [ ] Data Analysis : 진현영
 
 ## Result
 - 결과
