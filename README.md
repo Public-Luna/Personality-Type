@@ -8,5 +8,9 @@
 - 배포
 - 분석
 
+## Team
+- PM : 나영채 
+- SERVER : 장문경
+
 ## Result
 - 결과
