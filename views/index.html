@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>example</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <style>
+        .hover {
+            cursor: pointer
+        }
+        .hover:hover {
+            background-color: #EEE
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="jumbotron jumbotron-fluid" style="background-color: rgb(235,120,135);">
+            <div class="container">
+                <h1 class="display-4"style="color: azure;">공대생의 연애타입</h1>
+                <p class="lead" style="color: azure;">공대생인 당신! 본인의 연애타입이 궁금하지 않으신가요?</p>
+            </div>
+        </div>
+        <div class="container" id="content">
+            
+        </div>
+    </div>
+    <script>
+        
+        var data = {
+            
+            question: [
+                '친구의 소개로 카페에서 처음 만난 이성에게 호감이 생겨 무언가 대화를 이어가려는 시도를 한다. 리드한 대화주제는?',
+                '거리를 거닐다 마주친 이성에게 첫눈에 반했다. 어떻게 할 것인가?',
+                'ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ',
+            ],
+            answer: [
+                ['오늘 공부한 것들과 학술적 이야기', '최근 학교근처를 돌아다니는 고양이 이야기', '다른답지', '다른답지2'],
+                ['자신감 있게 말을 건다', '수줍게 말을 건다', '그냥 지나간다', '그냥 쳐다보면서 지나간다'],
+                ['ㅠㅠㅠㅠㅠㅠㅠㅠ', '최근 학교근처를 돌아다니는 고양이 이야기', '다른답지', '다른답지2'],
+            ]   
+        }
+            
+        function prev(i){
+            if (i != 0){
+                $('#card-'+i).hide()
+                $('#card-'+(i-1)).show()
+            }
+        }
+        function next(i){
+            $('#card-'+i).hide()
+            if (data.question.length-1 == i){
+                console.log(11111111)
+                $.ajax({
+                    url:'http://22d58d77b900.ngrok.io/form',
+                    type:'post',
+                    data:{'answer':[0,0,0,0,0,0,0,0,0,0]},
+                    success:function(data){
+                        console.log('성공')
+                },
+                    
+        })
+        console.log(22222222222222)
+               //window.location.href = 'report.html'
+            
+            }
+            $('#card-'+(i+1)).show()
+        }
+        
+        for(var i=0;i<data.question.length;i++) {
+            var per = Math.floor(i / data.question.length * 100);
+            var card = `
+                <div class="card" id="card-`+i+`" style="background-color:rgb(235,225,216)">
+                  <div class="card-body">
+                    <div class="progress mb-3 " style="background-color: rgb(251,185,159);">
+                      <div class="progress-bar" role="progressbar" style="background-color: rgb(251,185,200); width: `+per+`%" aria-valuenow="`+per+`" aria-valuemin="0" aria-valuemax="100" >`+per+`%</div>
+                    </div>
+                    <h5 class="card-title">`+data.question[i]+`</h5>
+                    <div class="card my-4">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item hover">1. `+data.answer[i][0]+`</li>
+                        <li class="list-group-item hover">2. `+data.answer[i][1]+`</li>
+                        <li class="list-group-item hover">3. `+data.answer[i][2]+`</li>
+                        <li class="list-group-item hover">4. `+data.answer[i][3]+`</li>
+                      </ul>
+                    </div>
+
+                    `+(i==0?``:`<button onclick="prev(`+i+`)" class="btn btn-info">이전 질문</button>`)+`
+                    <button onclick="next(`+i+`)" class="btn btn-success" >`+((data.question.length-1)==i?`설문 완료!`:`다음 질문`)+`</button>
+                  </div>
+                </div>
+            `;
+            $('#content').append(card)
+            $('#card-'+i).hide()
+        }
+  
+        $('#card-0').show()
+
+    </script>
+</body>
+</html>
