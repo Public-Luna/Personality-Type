@@ -12,10 +12,10 @@
 ## Team
 팀 구상
 - [x] PM : 나영채 
-- [ ] SERVER : 장문경
-- [ ] Publisher : 이운호, 신재규
-- [ ] Data Analysis : 진현영
-- [ ] Illustrator : 김해리
+- [ ] SERVER : 
+- [ ] Publisher : 
+- [ ] Data Analysis : 
+- [ ] Illustrator : 
 - [ ] 
 ## Result
 - 결과
